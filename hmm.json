@@ -46,11 +46,6 @@
       "version": null
     },
     {
-      "name": "hscript",
-      "type": "haxelib",
-      "version": null
-    },
-    {
       "name": "SScript",
       "type": "git",
       "dir": null,
