@@ -375,8 +375,10 @@ class Note extends FlxSprite
 	}
 
 	function loadNoteAnims() {
-        if (((CharactersWith3D.contains(PlayState.dadChar) && !musthit) || (CharactersWith3D.contains(PlayState.bfChar) && musthit)) || ((CharactersWith3D.contains(PlayState.SONG.player2) || CharactersWith3D.contains(PlayState.SONG.player1)) && ((this.strumTime / 50) % 20 > 10)))
-                       {
+		if (((CharactersWith3D.contains(PlayState.SONG.player2) && !musthit) || ((CharactersWith3D.contains(PlayState.SONG.player1)
+				|| CharactersWith3D.contains(PlayState.characteroverride) || CharactersWith3D.contains(PlayState.formoverride)) && musthit))
+				&& value == default)
+		{
 	                	frames = Paths.getSparrowAtlas('notes/NOTE_assets_3D', 'shared');
 
 				animation.addByPrefix('greenScroll', 'green0');
@@ -392,42 +394,10 @@ class Note extends FlxSprite
 				animation.addByPrefix('turqScroll', 'turq0');
 				animation.addByPrefix('emeraldScroll', 'emerald0');
 				animation.addByPrefix('lightredScroll', 'lightred0');
-
-
-				animation.addByPrefix('purpleholdend', 'pruple end hold');
-				animation.addByPrefix('greenholdend', 'green hold end');
-				animation.addByPrefix('redholdend', 'red hold end');
-				animation.addByPrefix('blueholdend', 'blue hold end');
-				animation.addByPrefix('whiteholdend', 'white hold end');
-				animation.addByPrefix('yellowholdend', 'yellow hold end');
-				animation.addByPrefix('violetholdend', 'violet hold end');
-				animation.addByPrefix('blackholdend', 'black hold end');
-				animation.addByPrefix('darkholdend', 'dark hold end');
-				animation.addByPrefix('pinkholdend', 'pink hold end');
-				animation.addByPrefix('turqholdend', 'turq hold end');
-				animation.addByPrefix('emeraldholdend', 'emerald hold end');
-				animation.addByPrefix('lightredholdend', 'lightred hold end');
-
-				animation.addByPrefix('purplehold', 'purple hold piece');
-				animation.addByPrefix('greenhold', 'green hold piece');
-				animation.addByPrefix('redhold', 'red hold piece');
-				animation.addByPrefix('bluehold', 'blue hold piece');
-				animation.addByPrefix('whitehold', 'white hold piece');
-				animation.addByPrefix('yellowhold', 'yellow hold piece');
-				animation.addByPrefix('violethold', 'violet hold piece');
-				animation.addByPrefix('blackhold', 'black hold piece');
-				animation.addByPrefix('darkhold', 'dark hold piece');
-				animation.addByPrefix('pinkhold', 'pink hold piece');
-				animation.addByPrefix('turqhold', 'turq hold piece');
-				animation.addByPrefix('emeraldhold', 'emerald hold piece');
-				animation.addByPrefix('lightredhold', 'lightred hold piece');
-	
-				setGraphicSize(Std.int(width * noteSize));
-				updateHitbox();
-                       }
-                       else
-		       {
-			
+		}
+		if (guitarSection) value = 'guitarHero';
+		switch (value)
+		{
 			default:
 				frames = Paths.getSparrowAtlas(notePathLol, 'shared');
 
@@ -601,6 +571,7 @@ class Note extends FlxSprite
 				
 				// noteOffset = 20;
 		       }
+		}
 	}
 
 	function loadPixelNoteAnims() {
