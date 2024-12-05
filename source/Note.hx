@@ -377,9 +377,7 @@ class Note extends FlxSprite
 	function loadNoteAnims() {
 		if (((CharactersWith3D.contains(PlayState.SONG.player2) && !musthit) || ((CharactersWith3D.contains(PlayState.SONG.player1)
 				|| CharactersWith3D.contains(PlayState.characteroverride) || CharactersWith3D.contains(PlayState.formoverride)) && musthit))
-				&& value == default)
 		{
-			case '3D':
 	                	frames = Paths.getSparrowAtlas('notes/NOTE_assets_3D', 'shared');
 
 				animation.addByPrefix('greenScroll', 'green0');
