@@ -379,6 +379,7 @@ class Note extends FlxSprite
 				|| CharactersWith3D.contains(PlayState.characteroverride) || CharactersWith3D.contains(PlayState.formoverride)) && musthit))
 				&& value == default)
 		{
+			case '3D':
 	                	frames = Paths.getSparrowAtlas('notes/NOTE_assets_3D', 'shared');
 
 				animation.addByPrefix('greenScroll', 'green0');
